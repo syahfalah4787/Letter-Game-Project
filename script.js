@@ -21,21 +21,21 @@ async function loadWordList() {
   try {
     const response = await fetch('wordlist.json');
     if (!response.ok) {
-      throw now Error('Network response was not good');
+      throw new Error('Network response was not good');
     }
     const data = await response.json();
     wordList = data.words;
     console.log('Wordlist loaded successfully', wordList.length, 'words');
   } catch (error) {
     console.error('Error loading wordlist: ', error);
-    wordlist = ["apel", "nanas", "semangka", "jeruk", "ayam", "anjing"];
+    wordList = ["apel", "nanas", "semangka", "jeruk", "ayam", "anjing"];
     showMessage("Error loading wordlist. Using fallback list", "error");
   }
 }
 
 
 async function startGame() {
-    if (wordlist.length === 0) {
+    if (wordList.length === 0) {
       await loadWordList();
     }
   
