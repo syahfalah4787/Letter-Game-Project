@@ -4,6 +4,8 @@ let currentWord = "";
 let round = 1;
 let playerScore = 0;
 let computerScore = 0;
+let playerHealth = 3;
+let botHealth = 3;
 let isPlayerTurn = true;
 let timer;
 let timeLeft = 30;
@@ -17,6 +19,7 @@ const roundElement = document.getElementById('round');
 const playerScoreElement = document.getElementById('player-score');
 const computerScoreElement = document.getElementById('computer-score');
 const timerElement = document.getElementById('timer');
+const playerHealthElement = document.getElementById('player-health');
 
 async function loadWordList() {
   try {
@@ -90,6 +93,12 @@ function handlePlayerSubmit() {
         currentWord = playerWord;
         usedWords.add(playerWord);
         playerScore++;
+        
+        if (timeLeft >=10 && playerHealth >= 2) {
+          showMessage("Kamau mendapatakan +1 nyawa", "success");
+          playerHealth++;
+          updateHealthDisplay();
+        }
         
         currentWordElement.textContent = currentWord;
         addToHistory("Anda", playerWord);
@@ -184,6 +193,7 @@ function startTimer() {
         
         if (timeLeft <= 0) {
             clearInterval(timer);
+            reducePlayerHealth();
             showMessage("Waktu habis! Giliran komputer.", "error");
             isPlayerTurn = false;
             computerTurn();
@@ -199,6 +209,34 @@ function updateTimerDisplay() {
   } else {
     timerElement.classList.remove('timer-warning');
   }
+}
+
+function reducePlayerHealth() {
+  playerHealth--;
+  updateHealthDisplay();
+  
+  if (playerHealth <= 0) {
+    showMessage("Nyawa mu habis! kamu kalah.", "error");
+    endGame("computer");
+  } else {
+    showMessage("Waktu habis! Nyawa mu tersisa ${playerHealth}. Giliran komputer", "error");
+    isPlayerTurn = false;
+    computerTurn();
+  }
+}
+
+function updateHealthDisplay() {
+    playerHealthElement.textContent = playerHealth;
+    
+    if (playerHealth <= 1) {
+        playerHealthElement.classList.add('health-warning');
+        playerHealthElement.classList.remove('health-normal');
+    } else if (playerHealth <= 2) {
+        playerHealthElement.classList.remove('health-warning');
+        playerHealthElement.classList.add('health-normal');
+    } else {
+        playerHealthElement.classList.remove('health-warning', 'health-normal');
+    }
 }
 
 function endGame(winner) {
@@ -231,6 +269,7 @@ function restartGame() {
     round = 1;
     playerScore = 0;
     computerScore = 0;
+    playerHealth = 3;
     isPlayerTurn = true;
     
     currentWordElement.textContent = "Kata pertama akan dipilih secara acak";
@@ -238,6 +277,7 @@ function restartGame() {
     messageElement.textContent = "Permainan akan segera dimulai!";
     messageElement.className = "message";
     updateGameInfo();
+    updateHealthDisplay();
     
     timeLeft = 30;
     updateTimerDisplay();
