@@ -1,24 +1,19 @@
 {
   "words":  [ 
-    // Kata Tanya
     "apa", "siapa", "dimana", "kemana", "dari mana", "kapan", "berapa", "bagaimana", "mengapa", "kenapa",
     "yang mana", "dengan apa", "untuk apa", "dari siapa", "kepada siapa", "oleh siapa", "dari mana", "sampai kapan",
 
-    // Kata Ganti
     "saya", "aku", "kamu", "anda", "dia", "ia", "beliau", "kami", "kita", "kalian",
     "mereka", "ini", "itu", "sini", "situ", "sana", "sini", "situ", "sana", "yang",
 
-    // Kata Sambung
     "dan", "atau", "tetapi", "namun", "karena", "sebab", "jika", "kalau", "apabila", "ketika",
     "sambil", "seraya", "sedangkan", "padahal", "walaupun", "meskipun", "sementara", "sebelum", "sesudah", "setelah",
     "hingga", "sampai", "agar", "supaya", "dengan", "tanpa", "untuk", "guna", "seperti", "bagaikan",
-    "bahwa", "adalah", "ialah", "yaitu", "yakni", "misalnya", "contohnya", "antara lain",
-
-    // Kata Depan
+    "bahwa", "adalah", "ialah", "yaitu", "yakni", "misalnya", "contohnya"
+    
     "di", "ke", "dari", "pada", "dalam", "dengan", "untuk", "atas", "bawah", "depan",
     "belakang", "samping", "antara", "diantara", "sekitar", "dekat", "jauh", "dalam", "luar", "seberang",
 
-    // Kata Kerja Dasar
     "ada", "adalah", "akan", "alami", "ambil", "antar", "atur", "bagai", "baca", "bahas",
     "bakar", "balik", "bangun", "bantu", "bawa", "bayar", "beli", "beri", "bicara", "bilang",
     "buka", "buat", "bunuh", "cabut", "cari", "catat", "coba", "cuci", "dapat", "datang",
@@ -31,7 +26,6 @@
     "tembak", "temu", "tentu", "terbang", "terima", "tidur", "tiru", "tolak", "tulis", "tutup",
     "ucap", "ubah", "ukur", "undang", "urus", "usir", "wafat", "warnai", "zina",
 
-    // Kata Sifat
     "abadi", "abstrak", "adem", "agak", "agung", "ahir", "ajaib", "akrab", "aktif", "aman",
     "aneh", "anggun", "angkuh", "antik", "anyir", "asing", "awam", "awet", "ayah", "bagus",
     "bahagia", "baik", "bajingan", "bakar", "bandel", "bangga", "bangsat", "banyak", "baru", "basah",
