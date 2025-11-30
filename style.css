@@ -221,3 +221,28 @@ button:disabled {
         flex-direction: column;
     }
 }
+
+.timer-warning {
+  color: red !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+.info-box {
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
