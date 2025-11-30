@@ -1,13 +1,11 @@
-const wordList = [
-    "apel", "lemon", "nanas", "semangka", "anggur", "rambutan", "nangka", "alpukat", "tomat", "terong", 
-    "gulai", "ikan", "nasi", "ikan", "nangka", "ayam", "mangga", "apel", "leci", "ilmu", "ular", "rusa",
-    "angin", "naga", "api", "ikan", "nasi", "ilmu", "ular", "rumah", "harimau", "unta", "angsa", "asap",
-    "pohon", "naga", "api", "ikan", "nasi", "ilmu", "ular", "rusa", "angin", "naga", "api", "ikan", "nasi",
-    "buku", "uang", "gajah", "harimau", "unta", "angsa", "asap", "pohon", "naga", "api", "ikan", "nasi",
-    "kucing", "gajah", "harimau", "unta", "angsa", "asap", "pohon", "naga", "api", "ikan", "nasi", "ilmu",
-    "ular", "rusa", "angin", "naga", "api", "ikan", "nasi", "ilmu", "ular", "rumah", "harimau", "unta",
-    "bunga", "angsa", "asap", "pohon", "naga", "api", "ikan", "nasi", "ilmu", "ular", "rusa", "angin"
-];
+let wordList = [];
+fetch("./wordlist.json")
+  .then(response => response.json())
+  .then(data => {
+    wordList = data;
+    console.log("Wordlist loaded: " , wordList);
+    
+ });
 
 let usedWords = new Set();
 let currentWord = "";
