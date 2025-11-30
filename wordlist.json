@@ -1,4 +1,5 @@
-[
+{
+  "words":  [
     // Kata Tanya
     "apa", "siapa", "dimana", "kemana", "dari mana", "kapan", "berapa", "bagaimana", "mengapa", "kenapa",
     "yang mana", "dengan apa", "untuk apa", "dari siapa", "kepada siapa", "oleh siapa", "dari mana", "sampai kapan",
@@ -174,3 +175,4 @@
     "zebra", "zelot", "zenit", "zeolit", "zero", "zigot", "zikir", "zina", "zink", "zionis",
     "zirah", "zodiak", "zona", "zoologi", "zuama", "zuhud", "zulfikar", "zuriah"
 ]
+}
