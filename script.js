@@ -26,8 +26,10 @@ async function loadWordList() {
     const data = await response.json();
     wordList = data.words;
     console.log('Wordlist loaded successfully', wordList.length, 'words');
-  }catch (error) {
+  } catch (error) {
     console.error('Error loading wordlist: ', error);
+    wordlist = ["apel", "nanas", "semangka", "jeruk", "ayam", "anjing"];
+    showMessage("Error loading wordlist. Using fallback list", "error");
   }
 }
 
