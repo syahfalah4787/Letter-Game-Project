@@ -194,7 +194,7 @@ function startTimer() {
 function updateTimerDisplay() {
   timerElement.textContent = timeLeft;
   
-  if(timeLeft <= 10) {
+  if(timeLeft <= 5) {
     timerElement.classList.add('timer-warning');
   } else {
     timerElement.classList.remove('timer-warning');
