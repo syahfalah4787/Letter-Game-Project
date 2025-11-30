@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Letter Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>LAST LETTER GAME</h1>
+        <p class="subtitle">Kata baru harus dimulai dengan huruf terakhir kata sebelumnya</p>
+    </header>
+    
+    <div class="container">
+        <div class="game-info">
+            <div class="info-box">
+                <div class="info-label">RONDE</div>
+                <div class="info-value" id="round">1</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">SKOR ANDA</div>
+                <div class="info-value" id="player-score">0</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">SKOR KOMPUTER</div>
+                <div class="info-value" id="computer-score">0</div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div class="current-word" id="current-word">
+                Kata pertama akan dipilih secara acak
+            </div>
+            
+            <div class="input-area">
+                <input type="text" id="word-input" placeholder="Masukkan kata..." autocomplete="off">
+                <button id="submit-btn">Submit</button>
+            </div>
+            
+            <div class="message" id="message">
+                Permainan akan segera dimulai!
+            </div>
+            
+            <div class="game-history">
+                <div class="history-title">Riwayat Permainan</div>
+                <ul class="history-list" id="history-list"></ul>
+            </div>
+        </div>
+        
+        <div class="rules">
+            <h2>Aturan Permainan</h2>
+            <ul>
+                <li>Pemain dan komputer bergantian mengucapkan kata</li>
+                <li>Kata baru harus dimulai dengan huruf terakhir kata sebelumnya</li>
+                <li>Kata tidak boleh diulang selama permainan</li>
+                <li>Kata harus valid (ada dalam kamus bahasa Indonesia)</li>
+                <li>Jika pemain tidak bisa menjawab dalam waktu 30 detik, giliran akan diberikan ke komputer</li>
+                <li>Pemain yang tidak bisa menjawab akan kalah</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
