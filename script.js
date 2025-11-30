@@ -16,6 +16,7 @@ const historyList = document.getElementById('history-list');
 const roundElement = document.getElementById('round');
 const playerScoreElement = document.getElementById('player-score');
 const computerScoreElement = document.getElementById('computer-score');
+const timerElement = document.getElementById('timer');
 
 async function loadWordList() {
   try {
@@ -109,6 +110,9 @@ function handlePlayerSubmit() {
 function computerTurn() {
     showMessage("Giliran komputer...", "success");
     
+    timerElement.textContent = "-";
+    timerElement.classList.remove("timer-warning");
+    
     const lastLetter = getLastLetter(currentWord);
     const validWords = wordList.filter(word => 
         word.charAt(0).toUpperCase() === lastLetter && 
@@ -171,10 +175,12 @@ function updateGameInfo() {
 
 function startTimer() {
     clearInterval(timer);
-    timeLeft = 30;
+    timeLeft = 15;
+    updateTimerDisplay();
     
     timer = setInterval(() => {
         timeLeft--;
+        updateTimerDisplay();
         
         if (timeLeft <= 0) {
             clearInterval(timer);
@@ -185,8 +191,21 @@ function startTimer() {
     }, 1000);
 }
 
+function updateTimerDisplay() {
+  timerElement.textContent = timeLeft;
+  
+  if(timeLeft <= 10) {
+    timerElement.classList.add('timer-warning');
+  } else {
+    timerElement.classList.remove('timer-warning');
+  }
+}
+
 function endGame(winner) {
     clearInterval(timer);
+    
+    timerElement.textContent = "SELESAI";
+    timerElement.classList.remove("timer-warning");
     
     if (winner === "player") {
         showMessage("Selamat! Anda menang!", "success");
@@ -219,6 +238,10 @@ function restartGame() {
     messageElement.textContent = "Permainan akan segera dimulai!";
     messageElement.className = "message";
     updateGameInfo();
+    
+    timeLeft = 30;
+    updateTimerDisplay();
+    timerElement.classList.remove('timer-warning');
     
     const restartBtn = document.querySelector('button[onclick="restartGame"]');
     if (restartBtn) {
