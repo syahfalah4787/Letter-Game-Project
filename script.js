@@ -1,12 +1,4 @@
 let wordList = [];
-fetch("./wordlist.json")
-  .then(response => response.json())
-  .then(data => {
-    wordList = data;
-    console.log("Wordlist loaded: " , wordList);
-    
- });
-
 let usedWords = new Set();
 let currentWord = "";
 let round = 1;
@@ -25,7 +17,26 @@ const roundElement = document.getElementById('round');
 const playerScoreElement = document.getElementById('player-score');
 const computerScoreElement = document.getElementById('computer-score');
 
-function startGame() {
+async function loadWordList() {
+  try {
+    const response = await fetch('wordlist.json');
+    if (!response.ok) {
+      throw now Error('Network response was not good');
+    }
+    const data = await response.json();
+    wordList = data.words;
+    console.log('Wordlist loaded successfully', wordList.length, 'words');
+  }catch (error) {
+    console.error('Error loading wordlist: ', error);
+  }
+}
+
+
+async function startGame() {
+    if (wordlist.length === 0) {
+      await loadWordList();
+    }
+  
     const randomIndex = Math.floor(Math.random() * wordList.length);
     currentWord = wordList[randomIndex];
     usedWords.add(currentWord);
